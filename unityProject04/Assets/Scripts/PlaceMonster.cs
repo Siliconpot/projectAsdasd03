@@ -17,7 +17,7 @@ public class PlaceMonster : MonoBehaviour {
 			//kopioidaan monsterPrefab ja lisätään se kyseisen GameObjektin sijaintiin
 			monster = (GameObject) 
 				Instantiate(monsterPrefab, transform.position, Quaternion.identity);
-			//4
+			//kutsutaan PlayOneShot toistamaan ääniefekti, joka on objektin AudioSource -komponenttiin liitetty
 			AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 			audioSource.PlayOneShot(audioSource.clip);
 

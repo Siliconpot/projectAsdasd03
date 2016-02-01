@@ -10,6 +10,17 @@ public class PlaceMonster : MonoBehaviour {
 		return monster == null;
 	}
 
+	private bool canUpgradeMonster() {
+		if (monster != null) {
+			MonsterData monsterData = monster.GetComponent<MonsterData> ();
+			MonsterLevel nextLevel = monsterData.getNextLevel();
+			if (nextLevel != null) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	//Unity kutsuu OnMouseUp kun klikataan objektia
 	void OnMouseUp () {
 		//Kutsuttuna lisätään nomsteri, jos canPlaceMonster = true
@@ -21,6 +32,11 @@ public class PlaceMonster : MonoBehaviour {
 			AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 			audioSource.PlayOneShot(audioSource.clip);
 
+			// TODO: Deduct gold
+		} else if (canUpgradeMonster()) {
+			monster.GetComponent<MonsterData>().increaseLevel();
+			AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+			audioSource.PlayOneShot(audioSource.clip);
 			// TODO: Deduct gold
 		}
 	}

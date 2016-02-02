@@ -9,6 +9,23 @@ public class MoveEnemy : MonoBehaviour {
 	private float lastWaypointSwitchTime;
 	public float speed = 1.0f;
 
+	//tällä vihulainen osaa katsoa menosuuntaansa
+	private void RotateIntoMoveDirection() {
+		//1
+		Vector3 newStartPosition = waypoints [currentWaypoint].transform.position;
+		Vector3 newEndPosition = waypoints [currentWaypoint + 1].transform.position;
+		Vector3 newDirection = (newEndPosition - newStartPosition);
+		//2
+		float x = newDirection.x;
+		float y = newDirection.y;
+		float rotationAngle = Mathf.Atan2 (y, x) * 180 / Mathf.PI;
+		//3
+		GameObject sprite = (GameObject)
+			gameObject.transform.FindChild("Sprite").gameObject;
+		sprite.transform.rotation = 
+			Quaternion.AngleAxis(rotationAngle, Vector3.forward);
+	}
+
 	// Use this for initialization
 	void Start () {
 
@@ -33,7 +50,7 @@ public class MoveEnemy : MonoBehaviour {
 				
 				currentWaypoint++;
 				lastWaypointSwitchTime = Time.time;
-				// TODO: Rotate into move direction
+				RotateIntoMoveDirection();
 			} else {
 				
 				Destroy(gameObject);

@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\MonsterData.cs" />
      <Compile Include="Assets\Scripts\MoveEnemy.cs" />
      <Compile Include="Assets\Scripts\PlaceMonster.cs" />
+     <Compile Include="Assets\Scripts\SpawnEnemy.cs" />
      <Compile Include="Assets\Scripts\Tutorial.cs" />
      <None Include="Assets\Font\readme.txt" />
  <Reference Include="UnityEngine.UI">

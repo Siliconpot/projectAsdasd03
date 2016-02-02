@@ -11,19 +11,30 @@ public class MoveEnemy : MonoBehaviour {
 
 	//tällä vihulainen osaa katsoa menosuuntaansa
 	private void RotateIntoMoveDirection() {
-		//1
 		Vector3 newStartPosition = waypoints [currentWaypoint].transform.position;
 		Vector3 newEndPosition = waypoints [currentWaypoint + 1].transform.position;
 		Vector3 newDirection = (newEndPosition - newStartPosition);
-		//2
 		float x = newDirection.x;
 		float y = newDirection.y;
 		float rotationAngle = Mathf.Atan2 (y, x) * 180 / Mathf.PI;
-		//3
 		GameObject sprite = (GameObject)
 			gameObject.transform.FindChild("Sprite").gameObject;
 		sprite.transform.rotation = 
 			Quaternion.AngleAxis(rotationAngle, Vector3.forward);
+	}
+
+	//vihulaisen etaisyys maaliin
+	public float distanceToGoal() {
+		float distance = 0;
+		distance += Vector3.Distance(
+			gameObject.transform.position, 
+			waypoints [currentWaypoint + 1].transform.position);
+		for (int i = currentWaypoint + 1; i < waypoints.Length - 1; i++) {
+			Vector3 startPosition = waypoints [i].transform.position;
+			Vector3 endPosition = waypoints [i + 1].transform.position;
+			distance += Vector3.Distance(startPosition, endPosition);
+		}
+		return distance;
 	}
 
 	// Use this for initialization

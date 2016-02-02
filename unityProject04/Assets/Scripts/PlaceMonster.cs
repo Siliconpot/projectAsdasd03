@@ -7,7 +7,8 @@ public class PlaceMonster : MonoBehaviour {
 	private GameObject monster;
 
 	private bool canPlaceMonster() {
-		return monster == null;
+		int cost = monsterPrefab.GetComponent<MonsterData> ().levels[0].cost;
+		return monster == null && gameManager.Gold >= cost;
 	}
 
 	private bool canUpgradeMonster() {
@@ -15,11 +16,13 @@ public class PlaceMonster : MonoBehaviour {
 			MonsterData monsterData = monster.GetComponent<MonsterData> ();
 			MonsterLevel nextLevel = monsterData.getNextLevel();
 			if (nextLevel != null) {
-				return true;
+				return gameManager.Gold >= nextLevel.cost;
 			}
 		}
 		return false;
 	}
+
+	private GameManagerBehavior gameManager;
 
 	//Unity kutsuu OnMouseUp kun klikataan objektia
 	void OnMouseUp () {
@@ -28,21 +31,23 @@ public class PlaceMonster : MonoBehaviour {
 			//kopioidaan monsterPrefab ja lisätään se kyseisen GameObjektin sijaintiin
 			monster = (GameObject) 
 				Instantiate(monsterPrefab, transform.position, Quaternion.identity);
-			//kutsutaan PlayOneShot toistamaan ääniefekti, joka on objektin AudioSource -komponenttiin liitetty
 			AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 			audioSource.PlayOneShot(audioSource.clip);
 
-			// TODO: Deduct gold
+			gameManager.Gold -= monster.GetComponent<MonsterData>().CurrentLevel.cost;
 		} else if (canUpgradeMonster()) {
 			monster.GetComponent<MonsterData>().increaseLevel();
 			AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 			audioSource.PlayOneShot(audioSource.clip);
-			// TODO: Deduct gold
+			gameManager.Gold -= monster.GetComponent<MonsterData>().CurrentLevel.cost;
 		}
 	}
 
 	// Use this for initialization
 	void Start () {
+
+		gameManager =
+			GameObject.Find("GameManager").GetComponent<GameManagerBehavior>();
 	
 	}
 	

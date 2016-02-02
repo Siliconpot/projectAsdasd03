@@ -44,7 +44,7 @@ public class SpawnEnemy : MonoBehaviour {
 			if (((enemiesSpawned == 0 && timeInterval > timeBetweenWaves) ||
 				timeInterval > spawnInterval) && 
 				enemiesSpawned < waves[currentWave].maxEnemies) {
-				// 3  
+
 				lastSpawnTime = Time.time;
 				GameObject newEnemy = (GameObject)
 					Instantiate(waves[currentWave].enemyPrefab);

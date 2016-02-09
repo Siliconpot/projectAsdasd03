@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Tutorial.cs" />
      <Compile Include="Assets\Scripts\fastForward.cs" />
      <Compile Include="Assets\Scripts\quitApplication.cs" />
+     <Compile Include="Assets\Scripts\startGame.cs" />
      <None Include="Assets\Font\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>X:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

@@ -1,15 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MoveEnemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BulletBehavior.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameManagerBehavior.cs" Line="42" Column="25" />
-      <File FileName="Assets\Scripts\MonsterData.cs" Line="30" Column="38" />
-      <File FileName="Assets\Scripts\PlaceMonster.cs" Line="27" Column="35" />
+      <File FileName="Assets\Scripts\ShootEnemies.cs" Line="19" Column="4" />
+      <File FileName="Assets\Scripts\GameManagerBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MonsterData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlaceMonster.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\MoveEnemy.cs" Line="26" Column="18" />
-      <File FileName="Assets\Scripts\SpawnEnemy.cs" Line="47" Column="5" />
-      <File FileName="Assets\Scripts\HealthBar.cs" Line="22" Column="46" />
-      <File FileName="Assets\Scripts\EnemyDestructionDelegate.cs" Line="13" Column="2" />
-      <File FileName="Assets\Scripts\ShootEnemies.cs" Line="20" Column="3" />
+      <File FileName="Assets\Scripts\SpawnEnemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HealthBar.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyDestructionDelegate.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BulletBehavior.cs" Line="31" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
